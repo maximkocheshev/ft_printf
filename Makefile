@@ -2,17 +2,17 @@
 NAME	=	libftprintf.a
 
 SRCS	=	ft_printf.c ft_eval_format.c ft_type.c\
-		   	ft_char.c ft_string.c ft_int.c\
-		   	ft_int_u.c ft_int_x.c ft_point.c\
+		   	type/ft_char.c type/ft_string.c type/ft_int.c\
+		   	type/ft_int_u.c type/ft_int_x.c type/ft_point.c\
 		   	ft_flag.c ft_percent.c ft_wdt.c\
-		   	ft_prec.c ft_itoa.c ft_strdup.c\
-		   	ft_strlen.c ft_tolower.c
+		   	ft_prec.c libft/ft_itoa.c libft/ft_strdup.c\
+		   	libft/ft_strlen.c libft/ft_tolower.c
 
-HEADER	=	ft_printf.h
+HEADER	=	-I inc/
 OBJ		=	${SRCS:%.c=%.o}
 
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror -I${HEADER}
+CFLAGS	=	-Wall -Wextra -Werror ${HEADER}
 
 .PHONY:		all clean fclean re bonus
 
@@ -20,7 +20,7 @@ all:		${NAME}
 
 bonus:		${NAME}
 
-${NAME}	:	${OBJ} ${HEADER}
+${NAME}	:	${OBJ}
 			ar rcs ${NAME} $?
 
 %.o : %.c	${HEADER}
