@@ -1,4 +1,4 @@
-# Ft_printf
+# Printf
 ### The aim of the mandatory part:
 To write a library that contains ft_printf, a function that will mimic the real printf without flags and field width.
 ### The aim of the bonus part:
